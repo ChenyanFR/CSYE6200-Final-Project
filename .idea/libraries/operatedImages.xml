@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="operatedImages">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/resources/operatedImages.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
