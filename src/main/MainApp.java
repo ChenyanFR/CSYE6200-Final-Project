@@ -12,7 +12,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
         primaryStage.setTitle("College Sublet App");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 1000, 800));
+        primaryStage.setResizable(false); //its fixed layout, not responsive
         primaryStage.show();
     }
 

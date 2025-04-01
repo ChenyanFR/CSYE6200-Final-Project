@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step3Controller"
+      alignment="CENTER" spacing="10" prefWidth="1000" prefHeight="800"
+      stylesheets="@login.css">
+           
+    <Label text="Do you already have a place?" />
+    <HBox spacing="20">
+        <Button text="Yes" onAction="#handleYes"/>
+        <Button text="No" onAction="#handleNo"/>
+    </HBox>
+</VBox>

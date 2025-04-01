@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.Step4Controller"
+      alignment="CENTER" spacing="15" prefWidth="1000" prefHeight="800"
+      stylesheets="@login.css">
+
+    <Label text="Register your place" />
+    
+    <TextField fx:id="titleField" promptText="Title" />
+    
+    <Label text="Upload 1 photo" />
+    <Button text="Upload Image" onAction="#handleUpload" />
+    <Label fx:id="uploadPathLabel" />
+
+    <TextArea fx:id="descArea" promptText="Introduce your place" />
+    
+    <TextField promptText="Number of roommates" />
+    <CheckBox text="Credit check required" />
+    <CheckBox text="Women only" />
+    <CheckBox text="Allow party?" />
+    <CheckBox text="Allow guests?" />
+    <TextField promptText="Duration (e.g. 4 months)" />
+
+    <Button text="Complete" onAction="#handleComplete" />
+</VBox>

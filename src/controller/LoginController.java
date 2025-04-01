@@ -33,7 +33,7 @@ public class LoginController {
 
         if (login(username, password)) {
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("/view/main.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/view/main_view.fxml"));
                 Stage stage = (Stage) usernameField.getScene().getWindow();
                 stage.setScene(new Scene(root));
             } catch (Exception e) {

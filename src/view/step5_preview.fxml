@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.Step5PreviewController"
+      spacing="20" alignment="CENTER" stylesheets="@login.css">
+
+    <Label text="Your Listing Preview" />
+    <ImageView fx:id="uploadedImage" fitWidth="300" preserveRatio="true" />
+    <Label fx:id="titleLabel" />
+    <Label fx:id="descLabel" />
+</VBox>

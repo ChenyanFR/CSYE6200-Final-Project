@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step1Controller"
+      alignment="CENTER" spacing="10" prefWidth="1000" prefHeight="800"
+      stylesheets="@login.css">
+          
+    <Label text="Are you looking for a sublet or roommates?" />
+
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Sublet" onAction="#handleSublet" />
+        <Button text="Roommates" onAction="#handleRoommates" />
+    </HBox>
+</VBox>
