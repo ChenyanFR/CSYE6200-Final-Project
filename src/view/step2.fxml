@@ -14,5 +14,9 @@
         <TextField promptText="No Min" />
         <TextField promptText="No Max" />
     </HBox>
-    <Button text="Next" onAction="#handleNext" />
+    
+    <HBox spacing="20" alignment="CENTER">
+    	<Button text="Back" onAction="#handleBack" />
+    	<Button text="Next" onAction="#handleNext" />
+    </HBox>
 </VBox>

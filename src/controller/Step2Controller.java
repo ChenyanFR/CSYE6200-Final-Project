@@ -15,10 +15,27 @@ public class Step2Controller {
         try {
             Parent nextView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));
             Scene currentScene = ((Node) event.getSource()).getScene();
-            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
-            rootPane.getChildren().setAll(nextView);
+//            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
+//            rootPane.getChildren().setAll(nextView);
+            currentScene.setRoot(nextView);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    
+    public void handleBack(ActionEvent event) {
+    	try {
+    		Parent prevView = FXMLLoader.load(getClass().getResource("/view/step1.fxml"));
+            Scene currentScene = ((Node) event.getSource()).getScene();
+//            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
+//            rootPane.getChildren().setAll(prevView);
+            currentScene.setRoot(prevView);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    public void initialize() {
+    	System.out.println("Step2Controller initialized");
     }
 }

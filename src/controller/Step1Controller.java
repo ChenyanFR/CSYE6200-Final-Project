@@ -23,10 +23,13 @@ public class Step1Controller {
         try {
             Parent nextView = FXMLLoader.load(getClass().getResource(path));
             Scene currentScene = ((Node) event.getSource()).getScene();
-            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
-            rootPane.getChildren().setAll(nextView);
+//            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
+//            rootPane.getChildren().setAll(nextView);
+            currentScene.setRoot(nextView);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    
+    System.out.println("Step2.fxml path: " + getClass().getResource("/view/step2.fxml"));
 }
