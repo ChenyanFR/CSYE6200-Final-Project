@@ -17,5 +17,7 @@
             <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="200"/>
         </columns>
     </TableView>
+    
+    <Button text="Back" onAction="#handleBack" />
 </VBox>
 

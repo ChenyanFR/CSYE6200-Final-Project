@@ -31,5 +31,4 @@ public class Step1Controller {
         }
     }
     
-    System.out.println("Step2.fxml path: " + getClass().getResource("/view/step2.fxml"));
 }

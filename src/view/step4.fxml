@@ -26,4 +26,5 @@
     <TextField promptText="Duration (e.g. 4 months)" />
 
     <Button text="Complete" onAction="#handleComplete" />
+    <Button text="Back" onAction="#handleBack" />
 </VBox>

@@ -34,8 +34,5 @@ public class Step2Controller {
     		e.printStackTrace();
     	}
     }
-    
-    public void initialize() {
-    	System.out.println("Step2Controller initialized");
-    }
+
 }

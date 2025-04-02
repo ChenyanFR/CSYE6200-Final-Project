@@ -12,4 +12,6 @@
     <ImageView fx:id="uploadedImage" fitWidth="300" preserveRatio="true" />
     <Label fx:id="titleLabel" />
     <Label fx:id="descLabel" />
+    
+    <Button text="Back" onAction="#handleBack" />
 </VBox>

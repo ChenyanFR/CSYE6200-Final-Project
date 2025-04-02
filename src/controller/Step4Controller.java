@@ -50,5 +50,15 @@ public class Step4Controller {
             e.printStackTrace();
         }
     }
+    
+    public void handleBack(ActionEvent event) {
+    	try {
+    		Parent prevView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));
+    		Scene currentScene = ((Node) event.getSource()).getScene();
+    		currentScene.setRoot(prevView);
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    }
 }
 

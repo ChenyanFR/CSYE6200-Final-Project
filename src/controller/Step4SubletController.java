@@ -1,7 +1,14 @@
 package controller;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.SubletListing;
@@ -21,8 +28,17 @@ public class Step4SubletController {
         locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-
         tableView.setItems(SubletStorage.getListings());
+    }
+    
+    public void handleBack(ActionEvent event) {
+        try {
+            Parent prevView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));
+            Scene currentScene = ((Node) event.getSource()).getScene();
+            currentScene.setRoot(prevView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
