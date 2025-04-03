@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.SubletListing;
 
 public class Step5PreviewController {
 
@@ -22,6 +23,7 @@ public class Step5PreviewController {
         titleLabel.setText("Title: " + title);
         descLabel.setText("Description: " + desc);
         if (imagePath != null) {
+      
             uploadedImage.setImage(new Image("file:" + imagePath));
         }
     }
@@ -35,4 +37,12 @@ public class Step5PreviewController {
             e.printStackTrace();
         }
     }
+
+    public void setData(SubletListing listing) {
+        
+        titleLabel.setText(listing.getTitle());
+        descLabel.setText(listing.getDescription());
+       
+    }
+
 }

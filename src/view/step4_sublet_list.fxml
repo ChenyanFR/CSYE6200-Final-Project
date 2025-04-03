@@ -5,19 +5,30 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.Step4SubletController"
-      spacing="20" alignment="CENTER" stylesheets="@login.css">
+      spacing="10" alignment="TOP_CENTER"
+      prefWidth="600" prefHeight="1000">
 
     <Label text="Available Sublets" />
     
-    <TableView fx:id="tableView" prefWidth="600">
+	<HBox spacing="10" alignment="CENTER">
+    <ComboBox fx:id="locationFilter" promptText="Filter by Location" />
+    <TextField fx:id="priceFilter" promptText="Max Price" />
+	</HBox>
+	
+    <TableView fx:id="tableView" prefWidth="360">
         <columns>
-            <TableColumn fx:id="titleColumn" text="Title" prefWidth="150"/>
-            <TableColumn fx:id="locationColumn" text="Location" prefWidth="150"/>
-            <TableColumn fx:id="priceColumn" text="Price" prefWidth="100"/>
+            <TableColumn fx:id="titleColumn" text="Title" prefWidth="120"/>
+            <TableColumn fx:id="locationColumn" text="Location" prefWidth="100"/>
+            <TableColumn fx:id="priceColumn" text="Price" prefWidth="70"/>
             <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="200"/>
         </columns>
     </TableView>
-    
-    <Button text="Back" onAction="#handleBack" />
+
+    <HBox spacing="10">
+        <Button text="Apply" onAction="#handleApply" />
+        <Button text="Back" onAction="#handleBack" />
+    </HBox>
 </VBox>
+
+
 

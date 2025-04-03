@@ -4,11 +4,11 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step2Controller"
-      alignment="CENTER" spacing="10" prefWidth="1000" prefHeight="800"
+      alignment="CENTER" spacing="10" prefWidth="600" prefHeight="1000"
       stylesheets="@login.css">
           
     <Label text="Where do you want to live?" />
-    <TextField promptText="Enter Zip Code" />
+	<ComboBox fx:id="locationComboBox" promptText="Select Location" />
     <Label text="What’s your budget?" />
     <HBox spacing="10">
         <TextField promptText="No Min" />
