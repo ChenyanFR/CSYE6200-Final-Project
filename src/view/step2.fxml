@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step2Controller"
-      alignment="CENTER" spacing="10" prefWidth="600" prefHeight="1000"
-      stylesheets="@login.css">
+<VBox alignment="CENTER" prefHeight="1000" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Step2Controller">
           
     <Label text="Where do you want to live?" />
 	<ComboBox fx:id="locationComboBox" promptText="Select Location" />
     <Label text="What’s your budget?" />
-    <HBox spacing="10">
-        <TextField promptText="No Min" />
-        <TextField promptText="No Max" />
+    <HBox alignment="CENTER" spacing="10">
+        <TextField alignment="CENTER" prefHeight="35.0" prefWidth="225.0" promptText="No Min">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin></TextField>
+        <TextField alignment="CENTER" promptText="No Max">
+         <HBox.margin>
+            <Insets />
+         </HBox.margin></TextField>
     </HBox>
     
-    <HBox spacing="20" alignment="CENTER">
-    	<Button text="Back" onAction="#handleBack" />
-    	<Button text="Next" onAction="#handleNext" />
+    <HBox alignment="CENTER" spacing="20">
+    	<Button onAction="#handleBack" text="Back" />
+    	<Button onAction="#handleNext" text="Next" />
     </HBox>
 </VBox>
