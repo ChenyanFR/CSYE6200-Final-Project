@@ -11,7 +11,7 @@
     <Label text="Are you looking for a sublet or roommates?" />
 
     <HBox spacing="20" alignment="CENTER">
-        <Button text="Sublet" onAction="#handleSublet" />
-        <Button text="Roommates" onAction="#handleRoommates" />
+        <Button text="Find a Sublet" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleSublet"/>
+        <Button text="Find Roommates" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleRoommates"/>
     </HBox>
 </VBox>
