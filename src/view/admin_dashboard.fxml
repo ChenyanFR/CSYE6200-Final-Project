@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AdminDashboardController"
+            prefWidth="600" prefHeight="1000">
+    
+    <children>
+        <!-- Title Label -->
+        <Label text="Admin Dashboard"
+               layoutX="20" layoutY="20"
+               style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+        <BarChart fx:id="regionPriceChart"
+                  layoutX="20" layoutY="70"
+                  prefWidth="370" prefHeight="250">
+            <xAxis>
+                <CategoryAxis label="Region" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Avg Rent ($)" />
+            </yAxis>
+        </BarChart>
+        
+        <PieChart fx:id="subletModeChart"
+                  layoutX="410" layoutY="70"
+                  prefWidth="370" prefHeight="250" />
+
+        <Button text="Home"
+                layoutX="500" layoutY="20"
+                onAction="#handleGoHome"/>
+    </children>
+</AnchorPane>
