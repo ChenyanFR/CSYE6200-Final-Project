@@ -46,28 +46,29 @@ public class AdminDashboardController implements Initializable {
 		loadRegionAveragePrices();
 		loadSubletModeStats();
 	}
+	
 	private void loadRegionAveragePrices() {
+	    Map<String, List<Double>> regionPrices = new HashMap<>();
 
-		Map<String, List<Double>> regionPrices = new HashMap<>();
+	    for (SubletListing listing : SubletStorage.getListings()) {
+	        String region = listing.getLocation(); // Changed from getRegion() to getLocation()
+	        regionPrices.putIfAbsent(region, new ArrayList<>());
+	        regionPrices.get(region).add(listing.getPrice());
+	    }
 
-		for (SubletListing listing : SubletStorage.getListings()) {
-			String region = listing.getRegion();
-			regionPrices.putIfAbsent(region, new ArrayList<>());
-			regionPrices.get(region).add(listing.getPrice());
+	    XYChart.Series<String, Number> series = new XYChart.Series<>();
+	    series.setName("Rent Average Stats by Region");
 
-		}
+	    for (Map.Entry<String, List<Double>> entry : regionPrices.entrySet()) {
+	        String region = entry.getKey();
+	        List<Double> prices = entry.getValue();
+	        double avg = prices.stream().mapToDouble(Double::doubleValue).average().orElse(0);
+	        series.getData().add(new XYChart.Data<>(region, avg));
+	    }
 
-		XYChart.Series<String, Number> series = new XYChart.Series<>();
-		series.setName("Rent Average Stats by Region");
-
-		for (Map.Entry<String, List<Double>> entry : regionPrices.entrySet()) {
-			String region = entry.getKey();
-			List<Double> prices = entry.getValue();
-			double avg = prices.stream().mapToDouble(Double::doubleValue).average().orElse(0);
-			series.getData().add(new XYChart.Data<>(region,avg));
-		}
-		regionPriceChart.getData().add(series);
+	    regionPriceChart.getData().add(series);
 	}
+
 	private void loadSubletModeStats() {
 		int shortTerm = 0;
 		int longTerm = 0;

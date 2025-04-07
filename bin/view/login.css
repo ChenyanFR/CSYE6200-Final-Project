@@ -558,7 +558,7 @@
 /*
   Responsive adjustments
 */
-/* Since your app is fixed at 400x700, these ensure proper display */
+/* these ensure proper display for ? */
 .main-container {
     -fx-min-width: 380px;
     -fx-max-width: 400px;

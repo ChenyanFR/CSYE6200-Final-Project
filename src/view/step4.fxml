@@ -13,22 +13,25 @@
     <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
     <Label text="Register your place" />
     
-    <TextField fx:id="titleField" promptText="Title" />
+    <TextField fx:id="titleField" promptText="Title" maxWidth="400"/>
     
     <Label text="Upload 1 photo" />
     <Button text="Upload Image" onAction="#handleUpload" />
-    <Label fx:id="uploadPathLabel" />
+    <Label fx:id="uploadPathLabel" maxWidth="400" />
 
-    <TextArea fx:id="descArea" promptText="Introduce your place" />
+    <TextArea fx:id="descArea" promptText="Introduce your place" maxWidth="400"/>
     
-    <TextField promptText="Number of roommates" />
+    <TextField promptText="Number of roommates" maxWidth="400"/>
     <CheckBox text="Credit check required" />
     <CheckBox text="Women only" />
     <CheckBox text="Allow party?" />
     <CheckBox text="Allow guests?" />
-    <TextField promptText="Duration (e.g. 4 months)" />
-
-    <Button text="Complete" onAction="#handleComplete" />
-    <Button text="Back" onAction="#handleBack" />
+    <TextField promptText="Duration (e.g. 4 months)" maxWidth="400"/>
+ 	
+    <HBox spacing="15" alignment="CENTER" padding="30">
+        <Button text="Complete" onAction="#handleComplete" />
+        <Button text="Back" onAction="#handleBack" />
+    </HBox>
+ 	   
     </VBox>
 </VBox>
