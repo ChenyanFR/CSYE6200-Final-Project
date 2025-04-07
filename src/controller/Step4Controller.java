@@ -1,18 +1,19 @@
 package controller;
 
+import java.io.File;
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import java.io.File;
-import java.io.IOException;
-import javafx.scene.Node;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class Step4Controller {
 
@@ -50,7 +51,7 @@ public class Step4Controller {
             e.printStackTrace();
         }
     }
-    
+
     public void handleBack(ActionEvent event) {
     	try {
     		Parent prevView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));

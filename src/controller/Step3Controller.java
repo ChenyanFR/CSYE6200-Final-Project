@@ -1,13 +1,12 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
-
-import java.io.IOException;
 
 public class Step3Controller {
 
@@ -18,7 +17,7 @@ public class Step3Controller {
     public void handleNo(ActionEvent event) {
         goToNext("/view/step4_sublet_list.fxml", event); // Sample listings
     }
-    
+
     public void handleBack(ActionEvent event) {
     	goToNext("/view/step2.fxml", event); // Back to prevView
     }

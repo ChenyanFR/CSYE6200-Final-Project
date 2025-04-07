@@ -2,22 +2,22 @@ package controller;
 
 import java.io.IOException;
 
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import model.SubletListing;
 import model.SubletStorage;
-import javafx.collections.transformation.FilteredList;
 
 public class Step4SubletController {
 
@@ -28,7 +28,7 @@ public class Step4SubletController {
     @FXML private TableColumn<SubletListing, String> descriptionColumn;
     @FXML private ComboBox<String> locationFilter;
     @FXML private TextField priceFilter;
-    
+
     private FilteredList<SubletListing> filteredList;
 
     @FXML
@@ -37,10 +37,10 @@ public class Step4SubletController {
         locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        
+
         filteredList = new FilteredList<>(SubletStorage.getListings(), p -> true);
         tableView.setItems(filteredList);
-        
+
         locationFilter.getItems().add("All");
         SubletStorage.getListings().stream()
             .map(SubletListing::getLocation)
@@ -72,7 +72,7 @@ public class Step4SubletController {
             e.printStackTrace();
         }
     }
-    
+
     public void handleBack(ActionEvent event) {
         try {
             Parent prevView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));

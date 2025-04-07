@@ -1,12 +1,12 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.Alert;
-import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class SignupController {
@@ -25,7 +25,7 @@ public class SignupController {
             return;
         }
 
-        //save user credentials 
+        //save user credentials
         LoginController loginController = new LoginController();
         boolean success = loginController.register(username, password);
 

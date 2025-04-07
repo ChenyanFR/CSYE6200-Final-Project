@@ -1,15 +1,16 @@
 package controller;
 
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
-import java.io.IOException;
 
 public class MainController {
 
-    @FXML 
+    @FXML
     private StackPane rootPane;
 
     @FXML

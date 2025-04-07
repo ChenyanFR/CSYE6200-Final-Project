@@ -22,13 +22,13 @@ import model.SubletListing;
 import model.SubletStorage;
 
 public class AdminDashboardController implements Initializable {
-	
+
 	@FXML
 	private BarChart<String, Number> regionPriceChart;
-	
+
 	@FXML
 	private PieChart subletModeChart;
-	
+
 	@FXML
 	private void handleGoHome() {
 	    try {
@@ -40,26 +40,26 @@ public class AdminDashboardController implements Initializable {
 	        e.printStackTrace();
 	    }
 	}
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadRegionAveragePrices();
 		loadSubletModeStats();
 	}
 	private void loadRegionAveragePrices() {
-		
+
 		Map<String, List<Double>> regionPrices = new HashMap<>();
-		
+
 		for (SubletListing listing : SubletStorage.getListings()) {
 			String region = listing.getRegion();
 			regionPrices.putIfAbsent(region, new ArrayList<>());
 			regionPrices.get(region).add(listing.getPrice());
-			
+
 		}
-		
+
 		XYChart.Series<String, Number> series = new XYChart.Series<>();
 		series.setName("Rent Average Stats by Region");
-		
+
 		for (Map.Entry<String, List<Double>> entry : regionPrices.entrySet()) {
 			String region = entry.getKey();
 			List<Double> prices = entry.getValue();
@@ -71,24 +71,24 @@ public class AdminDashboardController implements Initializable {
 	private void loadSubletModeStats() {
 		int shortTerm = 0;
 		int longTerm = 0;
-		
+
 		for (SubletListing listing: SubletStorage.getListings()) {
 			if (listing.getSubletMode().equalsIgnoreCase("short")) {
 				shortTerm++;
 			} else {
 				longTerm++;
 			}
-		}		
-		
-		
+		}
+
+
 		ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
 				new PieChart.Data("short term", shortTerm),
 				new PieChart.Data("long term", longTerm)
 						);
-				subletModeChart.setData(pieData);				
-						
+				subletModeChart.setData(pieData);
+
 	}
-	
-	
+
+
 
 }

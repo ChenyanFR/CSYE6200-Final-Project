@@ -1,20 +1,21 @@
 package controller;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.Alert;
-import javafx.scene.Scene;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.stage.Stage;
-
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -37,7 +38,7 @@ public class LoginController {
         	String role = userCredentials.get(username)[1];
             try {
                 Parent root;
-                
+
                 if ("admin".equalsIgnoreCase(role)) {
                     root = FXMLLoader.load(getClass().getResource("/view/admin_dashboard.fxml"));
                 } else {
@@ -127,5 +128,3 @@ public class LoginController {
         }
     }
 }
-
-

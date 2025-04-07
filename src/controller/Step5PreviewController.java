@@ -23,11 +23,11 @@ public class Step5PreviewController {
         titleLabel.setText("Title: " + title);
         descLabel.setText("Description: " + desc);
         if (imagePath != null) {
-      
+
             uploadedImage.setImage(new Image("file:" + imagePath));
         }
     }
-    
+
     public void handleBack(ActionEvent event) {
         try {
             Parent prevView = FXMLLoader.load(getClass().getResource("/view/step4.fxml"));
@@ -39,10 +39,10 @@ public class Step5PreviewController {
     }
 
     public void setData(SubletListing listing) {
-        
+
         titleLabel.setText(listing.getTitle());
         descLabel.setText(listing.getDescription());
-       
+
     }
 
 }

@@ -5,12 +5,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="1000" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.Step3Controller">
-           
+<VBox alignment="TOP_CENTER" prefHeight="1000" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.Step3Controller">
+    
+    <HBox style="-fx-background-color: #4568dc; -fx-padding: 10px; -fx-alignment: center-left; -fx-spacing: 10;">
+        <Label style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="ThriftHive" />
+        <Label HBox.hgrow="ALWAYS" />
+        <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
+    </HBox>
+    
+    <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">       
     <Label text="Do you already have a place?" />
     <HBox alignment="CENTER" spacing="20">
         <Button alignment="CENTER" onAction="#handleYes" text="Yes" />
         <Button alignment="CENTER" onAction="#handleNo" text="No" />
         <Button alignment="CENTER" onAction="#handleBack" text="Back" />
     </HBox>
+    </VBox>
 </VBox>

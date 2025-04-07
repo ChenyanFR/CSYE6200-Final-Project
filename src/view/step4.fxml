@@ -8,6 +8,13 @@
       alignment="CENTER" spacing="15" prefWidth="600" prefHeight="1000"
       stylesheets="@login.css">
 
+	<HBox style="-fx-background-color: #4568dc; -fx-padding: 10px; -fx-alignment: center-left; -fx-spacing: 10;">
+        <Label style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="ThriftHive" />
+        <Label HBox.hgrow="ALWAYS" />
+        <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
+    </HBox>
+    
+    <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
     <Label text="Register your place" />
     
     <TextField fx:id="titleField" promptText="Title" />
@@ -27,4 +34,5 @@
 
     <Button text="Complete" onAction="#handleComplete" />
     <Button text="Back" onAction="#handleBack" />
+    </VBox>
 </VBox>

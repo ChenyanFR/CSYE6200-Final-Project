@@ -1,12 +1,12 @@
 package controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import java.io.IOException;
-import javafx.scene.layout.StackPane;
 
 
 public class Step1Controller {
@@ -30,5 +30,5 @@ public class Step1Controller {
             e.printStackTrace();
         }
     }
-    
+
 }

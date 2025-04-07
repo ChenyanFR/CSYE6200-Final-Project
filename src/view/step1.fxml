@@ -7,11 +7,19 @@
 <VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step1Controller"
       alignment="CENTER" spacing="10" prefWidth="600" prefHeight="1000"
       stylesheets="@login.css">
-          
+        
+    <HBox style="-fx-background-color: #4568dc; -fx-padding: 10px; -fx-alignment: center-left; -fx-spacing: 10;">
+        <Label style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="ThriftHive" />
+        <Label HBox.hgrow="ALWAYS" />
+        <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
+    </HBox>
+    
+    <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
     <Label text="Are you looking for a sublet or roommates?" />
 
     <HBox spacing="20" alignment="CENTER">
         <Button text="Find a Sublet" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleSublet"/>
         <Button text="Find Roommates" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleRoommates"/>
     </HBox>
+    </VBox>
 </VBox>
