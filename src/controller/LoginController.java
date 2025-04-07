@@ -117,7 +117,7 @@ public class LoginController {
         Properties properties = new Properties();
         for (Map.Entry<String, String[]> entry : userCredentials.entrySet()) {
             String username = entry.getKey();
-            String[] credentials = entry.getValue(); // [password, role]
+            String[] credentials = entry.getValue(); 
             properties.setProperty(username, credentials[0] + ":" + credentials[1]);
         }
 

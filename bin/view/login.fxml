@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<VBox alignment="CENTER" prefHeight="1000" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.LoginController">
+<VBox alignment="CENTER" prefHeight="800" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.LoginController">
 
     <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
         <image>

@@ -8,13 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="1000" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Step2Controller">
+<VBox alignment="TOP_CENTER" prefHeight="800" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Step2Controller">
     
-    <HBox style="-fx-background-color: #4568dc; -fx-padding: 10px; -fx-alignment: center-left; -fx-spacing: 10;">
-        <Label style="-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;" text="ThriftHive" />        
-        <Label HBox.hgrow="ALWAYS" />
-        <Button style="-fx-background-color: transparent; -fx-text-fill: white;" text="Home" />
-    </HBox>
+    <fx:include source="header.fxml" />
     
     <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">      
     <Label text="Where do you want to live?" />

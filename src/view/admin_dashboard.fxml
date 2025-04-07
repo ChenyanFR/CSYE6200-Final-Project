@@ -6,7 +6,7 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.AdminDashboardController"
-            prefWidth="600" prefHeight="1000">
+            prefWidth="600" prefHeight="800">
     
     <children>
         <!-- Title Label -->
