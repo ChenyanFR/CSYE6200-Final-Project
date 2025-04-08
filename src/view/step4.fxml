@@ -28,7 +28,7 @@
     <CheckBox text="Allow guests?" />
     <TextField promptText="Duration (e.g. 4 months)" maxWidth="400"/>
  	
-    <HBox spacing="15" alignment="CENTER" padding="30">
+    <HBox spacing="15" alignment="CENTER">
         <Button text="Complete" onAction="#handleComplete" />
         <Button text="Back" onAction="#handleBack" />
     </HBox>

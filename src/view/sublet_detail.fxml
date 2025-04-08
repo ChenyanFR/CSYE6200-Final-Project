@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.SubletDetailController"
+      spacing="20" alignment="CENTER" stylesheets="@login.css"
+      prefWidth="600" prefHeight="800">
+
+    <fx:include source="header.fxml" />
+
+    <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
+        <Label fx:id="titleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+        <ImageView fx:id="imageView" fitWidth="300" fitHeight="200" preserveRatio="true" />
+        <Label fx:id="descriptionLabel" wrapText="true" maxWidth="400" />
+        <Label fx:id="locationLabel" />
+        <Label fx:id="priceLabel" />
+        <Label fx:id="modeLabel" />
+
+        <Button text="Back" onAction="#handleBack" />
+    </VBox>
+</VBox>

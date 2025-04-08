@@ -16,6 +16,9 @@
     <Label fx:id="titleLabel" />
     <Label fx:id="descLabel" />
     
-    <Button text="Back" onAction="#handleBack" />
+    <HBox spacing="10" alignment="CENTER">
+    	<Button text="Back" onAction="#handleBack" />
+    	<Button text="View All Sublets" onAction="#handleGoToSubletList" />
+	</HBox>
     </VBox>
 </VBox>

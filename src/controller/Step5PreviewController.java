@@ -18,6 +18,17 @@ public class Step5PreviewController {
     @FXML private ImageView uploadedImage;
     @FXML private Label titleLabel;
     @FXML private Label descLabel;
+    
+    @FXML
+    public void handleGoToSubletList(ActionEvent event) {
+        try {
+            Parent listView = FXMLLoader.load(getClass().getResource("/view/step4_sublet_list.fxml"));
+            Scene scene = ((Node) event.getSource()).getScene();
+            scene.setRoot(listView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setData(String title, String desc, String imagePath) {
         titleLabel.setText("Title: " + title);

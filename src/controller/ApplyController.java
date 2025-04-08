@@ -59,9 +59,9 @@ public class ApplyController {
             showAlert(Alert.AlertType.WARNING, "You must agree to the terms to apply.");
             return;
         }
-        AppliedApplication.setCurrent(
-                new AppliedApplication(nameField.getText(), emailField.getText(), listing)
-            );
+        AppliedApplication app = new AppliedApplication(nameField.getText(), emailField.getText(), listing);
+        AppliedApplication.setCurrent(app);
+        AppliedApplication.addApplication(app);  
 
         Alert confirm = new Alert(Alert.AlertType.CONFIRMATION, "Application submitted!\nDo you want to check your application status?", ButtonType.YES, ButtonType.NO);
         confirm.showAndWait().ifPresent(response -> {

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +18,13 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import model.ApplicationQueue;
+import model.AppliedApplication;
+import model.SubletClickTracker;
 import model.SubletListing;
 import model.SubletStorage;
 
@@ -40,11 +47,17 @@ public class AdminDashboardController implements Initializable {
 	        e.printStackTrace();
 	    }
 	}
+	@FXML private PieChart popularSubletsChart;
+	@FXML private TableView<AppliedApplication> applicationQueueTable;
+	@FXML private TableColumn<AppliedApplication, String> nameColumn;
+	@FXML private TableColumn<AppliedApplication, String> titleColumn;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		loadRegionAveragePrices();
 		loadSubletModeStats();
+		loadPopularSublets();
+		loadApplicationQueue();
 	}
 	
 	private void loadRegionAveragePrices() {
@@ -88,6 +101,27 @@ public class AdminDashboardController implements Initializable {
 						);
 				subletModeChart.setData(pieData);
 
+	}
+	private void loadPopularSublets() {
+	    ObservableList<PieChart.Data> data = FXCollections.observableArrayList();
+
+	    for (Map.Entry<SubletListing, Integer> entry : SubletClickTracker.getClickCounts().entrySet()) {
+	        String title = entry.getKey().getTitle();
+	        int count = entry.getValue();
+	        data.add(new PieChart.Data(title, count));
+	    }
+
+	    popularSubletsChart.setData(data);
+	}
+
+	private void loadApplicationQueue() {
+	    nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+	    titleColumn.setCellValueFactory(data -> new SimpleStringProperty(
+	        data.getValue().getListing().getTitle()
+	    ));
+
+	    ObservableList<AppliedApplication> list = FXCollections.observableArrayList(ApplicationQueue.getAll());
+	    applicationQueueTable.setItems(list);
 	}
 
 

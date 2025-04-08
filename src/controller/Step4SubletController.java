@@ -10,7 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -28,6 +30,8 @@ public class Step4SubletController {
     @FXML private TableColumn<SubletListing, String> descriptionColumn;
     @FXML private ComboBox<String> locationFilter;
     @FXML private TextField priceFilter;
+    @FXML private TableColumn<SubletListing, Void> detailsColumn;
+
 
     private FilteredList<SubletListing> filteredList;
 
@@ -49,6 +53,8 @@ public class Step4SubletController {
         locationFilter.setValue("All");
         locationFilter.setOnAction(e -> applyFilters());
         priceFilter.textProperty().addListener((obs, oldVal, newVal) -> applyFilters());
+        
+        addDetailsButtonToTable(); 
     }
     @FXML
     private void handleApply(ActionEvent event) {
@@ -103,6 +109,44 @@ public class Step4SubletController {
             return locationMatch && priceMatch;
         });
     }
+    private void addDetailsButtonToTable() {
+        detailsColumn.setCellFactory(col -> new TableCell<>() {
+            private final Button button = new Button("Details");
+
+            {
+                button.setOnAction(event -> {
+                    SubletListing listing = getTableView().getItems().get(getIndex());
+                    openDetailPage(listing);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(button);
+                }
+            }
+        });
+    }
+    private void openDetailPage(SubletListing listing) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sublet_detail.fxml"));
+            Parent detailView = loader.load();
+
+            SubletDetailController controller = loader.getController();
+            controller.setData(listing);
+
+            Stage stage = (Stage) tableView.getScene().getWindow();
+            stage.setScene(new Scene(detailView));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
 
 

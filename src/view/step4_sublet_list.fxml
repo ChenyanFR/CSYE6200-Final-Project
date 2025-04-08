@@ -31,6 +31,7 @@
             <TableColumn fx:id="locationColumn" prefWidth="100" text="Location" />
             <TableColumn fx:id="priceColumn" prefWidth="70" text="Price" />
             <TableColumn fx:id="descriptionColumn" prefWidth="200" text="Description" />
+            <TableColumn fx:id="detailsColumn" text="Details" />
         </columns>
     </TableView>
 

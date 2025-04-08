@@ -28,6 +28,20 @@
         <PieChart fx:id="subletModeChart"
                   layoutX="410" layoutY="70"
                   prefWidth="370" prefHeight="250" />
+                  
+        <Label text="Popular Sublets (by views)" layoutX="20" layoutY="330" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <PieChart fx:id="popularSubletsChart" prefHeight="250" layoutX="20" layoutY="350" />
+		
+		<Label text="Pending Applications" layoutX="20" layoutY="590" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+		<TableView fx:id="applicationQueueTable"
+           layoutX="20" layoutY="620"
+           prefWidth="560" prefHeight="150">
+    	<columns>
+        	<TableColumn fx:id="nameColumn" text="Applicant Name" prefWidth="200" />
+        	<TableColumn fx:id="titleColumn" text="Sublet Title" prefWidth="300" />
+    	</columns>
+		</TableView>
+        
 
         <Button text="Home"
                 layoutX="500" layoutY="20"

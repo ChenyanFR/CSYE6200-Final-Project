@@ -14,6 +14,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.SubletListing;
+import model.SubletStorage;
 
 public class Step4Controller {
 
@@ -33,6 +35,17 @@ public class Step4Controller {
     }
 
     public void handleComplete(ActionEvent event) {
+    	String title = titleField.getText();
+        String description = descArea.getText();
+        String image = imagePath != null ? imagePath : "";
+
+        String location = "User Submitted";
+        double price = 0.0;
+        String subletMode = "short";
+
+        SubletListing newListing = new SubletListing(title, location, price, description, subletMode, image);
+        SubletStorage.addListing(newListing);
+        
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/step5_preview.fxml"));
             Parent previewView = loader.load();

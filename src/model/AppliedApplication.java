@@ -1,11 +1,14 @@
 package model;
 
-public class AppliedApplication {
-    private static AppliedApplication current;
+import java.util.ArrayList;
+import java.util.List;
 
-    private final String name;
-    private final String email;
-    private final SubletListing listing;
+public class AppliedApplication {
+    private String name;
+    private String email;
+    private SubletListing listing;
+
+    private static final List<AppliedApplication> applications = new ArrayList<>();
 
     public AppliedApplication(String name, String email, SubletListing listing) {
         this.name = name;
@@ -13,16 +16,27 @@ public class AppliedApplication {
         this.listing = listing;
     }
 
-    public static void setCurrent(AppliedApplication app) {
-        current = app;
+    public String getName() { return name; }
+    public String getEmail() { return email; }
+    public SubletListing getListing() { return listing; }
+
+    public static void addApplication(AppliedApplication app) {
+        applications.add(app);
     }
+
+    public static List<AppliedApplication> getAll() {
+        return applications;
+    }
+
+    private static AppliedApplication current;
 
     public static AppliedApplication getCurrent() {
         return current;
     }
 
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public SubletListing getListing() { return listing; }
+    public static void setCurrent(AppliedApplication app) {
+        current = app;
+    }
 }
+
 

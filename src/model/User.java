@@ -1,22 +1,18 @@
 package model;
 
-public class User {
-    private String username;
-    private String password;
-    private boolean isAdmin;
+//polymorphism & inheritance
+public abstract class User {
+    protected String username;
+    protected String email;
 
-    public User(String username, String password, boolean isAdmin) {
-        this.username = username;
-        this.password = password;
-        this.isAdmin = isAdmin;
-    }
-    public boolean isAdmin() {
-    	return isAdmin;
+    public String getUsername() {
+        return username;
     }
 
-    public String getUsername() { return username; }
-    public String getPassword() { return password; }
+    public String getEmail() {
+        return email;
+    }
 
-    public void setUsername(String username) { this.username = username; }
-    public void setPassword(String password) { this.password = password; }
+    public abstract String getRole();
 }
+
