@@ -13,19 +13,26 @@
     <fx:include source="header.fxml" />
     
     <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">      
-    <Label text="Where do you want to live?" />
+    <Label text="Where do you want to live?" style="-fx-font-size: 16px;" />
 	<ComboBox fx:id="locationComboBox" promptText="Select Location" />
-    <Label text="What’s your budget?" />
+	<!-- Error message -->
+    <Label fx:id="locationErrorLabel" text="Please select a location" 
+           style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
+           
+    <Label text="What’s your budget?" style="-fx-font-size: 16px;"/>
     <HBox alignment="CENTER" spacing="10">
-        <TextField alignment="CENTER" prefHeight="35.0" prefWidth="225.0" promptText="No Min">
+        <TextField fx:id="minBudgetField" alignment="CENTER" prefHeight="35.0" prefWidth="225.0" promptText="No Min">
          <HBox.margin>
             <Insets />
          </HBox.margin></TextField>
-        <TextField alignment="CENTER" promptText="No Max">
+        <TextField fx:id="maxBudgetField" alignment="CENTER" promptText="No Max">
          <HBox.margin>
             <Insets />
          </HBox.margin></TextField>
     </HBox>
+    <!-- Error message -->
+    <Label fx:id="budgetErrorLabel" text="Please enter valid budget values" 
+           style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
     
     <HBox alignment="CENTER" spacing="20">
     	<Button onAction="#handleBack" text="Back" />

@@ -13,6 +13,12 @@
         <Label text="Admin Dashboard"
                layoutX="20" layoutY="20"
                style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+               
+        <!-- Navigation Buttons -->
+		<HBox spacing="10" layoutX="400" layoutY="20">
+    		<Button text="Home" onAction="#handleGoHome"/>
+    		<Button text="Logout" onAction="#handleLogout"/>
+		</HBox>
 
         <BarChart fx:id="regionPriceChart"
                   layoutX="20" layoutY="70"
@@ -41,10 +47,5 @@
         	<TableColumn fx:id="titleColumn" text="Sublet Title" prefWidth="300" />
     	</columns>
 		</TableView>
-        
-
-        <Button text="Home"
-                layoutX="500" layoutY="20"
-                onAction="#handleGoHome"/>
     </children>
 </AnchorPane>

@@ -47,6 +47,18 @@ public class AdminDashboardController implements Initializable {
 	        e.printStackTrace();
 	    }
 	}
+	@FXML
+	private void handleLogout() {
+	    try {
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+	        Parent root = loader.load();
+	        Stage stage = (Stage) regionPriceChart.getScene().getWindow();
+	        stage.setScene(new Scene(root));
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+	
 	@FXML private PieChart popularSubletsChart;
 	@FXML private TableView<AppliedApplication> applicationQueueTable;
 	@FXML private TableColumn<AppliedApplication, String> nameColumn;

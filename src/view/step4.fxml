@@ -11,22 +11,33 @@
 	<fx:include source="header.fxml" />
     
     <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
-    <Label text="Register your place" />
+    <Label text="Register your place" style="-fx-font-size: 16px;" />
     
     <TextField fx:id="titleField" promptText="Title" maxWidth="400"/>
+    <Label fx:id="titleErrorLabel" text="Please enter a title" 
+       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
     
-    <Label text="Upload 1 photo" />
+    <Label text="Upload 1 photo" style="-fx-font-size: 16px;"/>
     <Button text="Upload Image" onAction="#handleUpload" />
-    <Label fx:id="uploadPathLabel" maxWidth="400" />
+    <Label fx:id="uploadPathLabel" maxWidth="400" style="-fx-font-size: 16px;" />
+    <Label fx:id="imageErrorLabel" text="Please upload an image" 
+       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
 
     <TextArea fx:id="descArea" promptText="Introduce your place" maxWidth="400"/>
+    <Label fx:id="descErrorLabel" text="Please introduce your place" 
+       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
     
-    <TextField promptText="Number of roommates" maxWidth="400"/>
+    <TextField fx:id="roommatesField" promptText="Number of roommates" maxWidth="400"/>
+    <Label fx:id="roommatesErrorLabel" text="Please enter number of roommates" 
+       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
+       
     <CheckBox text="Credit check required" />
     <CheckBox text="Women only" />
     <CheckBox text="Allow party?" />
     <CheckBox text="Allow guests?" />
-    <TextField promptText="Duration (e.g. 4 months)" maxWidth="400"/>
+    <TextField fx:id="durationField" promptText="Duration (e.g. 4 months)" maxWidth="400"/>
+    <Label fx:id="durationErrorLabel" text="Please enter duration" 
+       style="-fx-text-fill: #e74c3c; -fx-font-size: 12px;" visible="false" />
  	
     <HBox spacing="15" alignment="CENTER">
         <Button text="Complete" onAction="#handleComplete" />
