@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.SignupController"
+      alignment="CENTER" spacing="12" prefWidth="650" prefHeight="800"
+      stylesheets="@login.css">
+
+    <Label text="Sign Up" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <TextField fx:id="usernameField" promptText="Username">
+        <VBox.margin><Insets left="30" right="30"/></VBox.margin>
+    </TextField>
+
+    <PasswordField fx:id="passwordField" promptText="Password">
+        <VBox.margin><Insets left="30" right="30"/></VBox.margin>
+    </PasswordField>
+
+    <TextField fx:id="schoolField" promptText="Your School Name">
+        <VBox.margin><Insets left="30" right="30"/></VBox.margin>
+    </TextField>
+
+    <TextField fx:id="emailField" promptText="School Email (e.g. user@school.edu)">
+        <VBox.margin><Insets left="30" right="30"/></VBox.margin>
+    </TextField>
+
+    <DatePicker fx:id="graduationDatePicker" promptText="Graduation Date">
+        <VBox.margin><Insets left="30" right="30"/></VBox.margin>
+    </DatePicker>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Register" onAction="#handleRegister" styleClass="button-apply" />
+        <Button text="Back" onAction="#handleBackToLogin" styleClass="button-secondary" />
+    </HBox>
+
+</VBox>
