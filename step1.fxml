@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="controller.Step1Controller"
+      alignment="CENTER" spacing="10" prefWidth="650" prefHeight="800"
+      stylesheets="@login.css">
+        
+    <fx:include source="header.fxml" /> 
+    
+    <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
+    	<!-- Welcome message -->
+    <VBox alignment="CENTER" spacing="15" style="-fx-padding: 0 0 140 0;">
+    	<ImageView fitWidth="120" fitHeight="120" preserveRatio="true">
+        	<Image url="@../resources/images/ThriftHive.png" />
+    	</ImageView>
+        <Label text="Welcome to ThriftHive" 
+               style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4568dc;" />
+               
+        <Label text="The College Student Sublet &amp; Roommate Finder"
+               style="-fx-font-size: 16px; -fx-text-fill: #555555;" />
+    </VBox>
+    
+    	<Label text="Are you looking for a sublet or roommates?" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    	<HBox  spacing="20" alignment="CENTER">
+    	<Button text="Find a Sublet" styleClass="button-feature-gradient" onAction="#handleSublet"/>
+		<Button text="Find Roommates" styleClass="button-feature-gradient" onAction="#handleRoommates"/>
+        	<!-- <Button text="Find a Sublet" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleSublet"/>
+        	<Button text="Find Roommates" styleClass="button-option" style="-fx-background-color: #4568dc;" onAction="#handleRoommates"/> -->
+    	</HBox>
+    </VBox>
+</VBox>

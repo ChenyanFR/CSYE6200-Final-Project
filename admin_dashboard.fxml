@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controller.AdminDashboardController"
+            stylesheets="@login.css"
+            prefWidth="650" prefHeight="800">
+    
+    <children>
+        <!-- Title Label -->
+        <Label text="Admin Dashboard" layoutX="20" layoutY="20" styleClass="dashboard-title" />
+        <!-- Navigation Buttons --> 
+		<HBox spacing="10" layoutX="400" layoutY="20">
+    		<Button text="Home" onAction="#handleGoHome" styleClass="button-secondary"/>
+    		<Button text="Logout" onAction="#handleLogout" styleClass="button-secondary"/>
+		</HBox>
+
+        <BarChart fx:id="regionPriceChart" layoutX="20" layoutY="70" prefWidth="370" prefHeight="250" styleClass="chart">
+            <xAxis>
+                <CategoryAxis label="Region" />
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Avg Rent ($)" />
+            </yAxis>
+        </BarChart>
+        
+        <PieChart fx:id="subletModeChart"
+                  layoutX="410" layoutY="70"
+                  prefWidth="370" prefHeight="250" />
+                  
+        <Label text="Popular Sublets (by views)" layoutX="20" layoutY="330" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        <PieChart fx:id="popularSubletsChart" prefHeight="250" layoutX="20" layoutY="350" />
+		
+		<Label text="Pending Applications" layoutX="20" layoutY="590" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+		<TableView fx:id="applicationQueueTable"
+           layoutX="20" layoutY="620"
+           prefWidth="560" prefHeight="150">
+    	<columns>
+        	<TableColumn fx:id="nameColumn" text="Applicant Name" prefWidth="200" />
+        	<TableColumn fx:id="titleColumn" text="Sublet Title" prefWidth="300" />
+    	</columns>
+		</TableView>
+    </children>
+</AnchorPane>

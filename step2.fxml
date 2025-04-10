@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="800" prefWidth="650" spacing="10" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Step2Controller">
+    
+    <VBox alignment="CENTER" spacing="10" styleClass="card" VBox.vgrow="ALWAYS" maxWidth="500">      
+        <!-- Page Title -->
+        <Label text="Find Your Ideal Place" styleClass="section-title" style="-fx-font-size: 25px" />
+        
+        <!-- Location Section -->
+        <VBox spacing="8" alignment="CENTER_LEFT" maxWidth="400">
+            <padding>
+                <Insets top="15" bottom="5" />
+            </padding>
+            <Label text="Where do you want to live?" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <ComboBox fx:id="locationComboBox" promptText="Select Location" maxWidth="400" />
+            <!-- Error message -->
+            <Label fx:id="locationErrorLabel" text="Please select a location" 
+                   styleClass="error-label" visible="false" />
+        </VBox>
+           
+        <!-- Budget Section -->
+        <VBox spacing="8" alignment="CENTER_LEFT" maxWidth="400">
+            <padding>
+                <Insets top="15" bottom="5" />
+            </padding>
+            <Label text="What's your budget?" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            
+            <!-- Min Budget Field -->
+            <Label text="Minimum Budget ($)" style="-fx-font-size: 14px;" />
+            <TextField fx:id="minBudgetField" maxWidth="400" promptText="Enter minimum amount" />
+            
+            <!-- Max Budget Field -->
+            <Label text="Maximum Budget ($)" style="-fx-font-size: 14px;" />
+            <TextField fx:id="maxBudgetField" maxWidth="400" promptText="Enter maximum amount" />
+            
+            <!-- Error message -->
+            <Label fx:id="budgetErrorLabel" text="Please enter valid budget values" 
+                   styleClass="error-label" visible="false" />
+        </VBox>
+        
+        <!-- Navigation Buttons -->
+        <HBox alignment="CENTER" spacing="20">
+            <padding>
+                <Insets top="25" />
+            </padding>
+            <Button onAction="#handleBack" text="Back" styleClass="button-secondary" />
+            <Button onAction="#handleNext" text="Next" styleClass="button-gradient" />
+        </HBox>
+    </VBox>
+</VBox>

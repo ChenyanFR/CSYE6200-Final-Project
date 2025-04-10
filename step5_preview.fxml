@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.Step5PreviewController"
+      spacing="20" alignment="CENTER" stylesheets="@login.css">
+
+	 <fx:include source="header.fxml" />
+    
+    <VBox alignment="CENTER" spacing="20" VBox.vgrow="ALWAYS">
+    <Label text="Your Listing Preview" style="-fx-font-size: 16px;"/>
+    <ImageView fx:id="uploadedImage" fitWidth="300" preserveRatio="true" styleClass="image-preview" />
+    <Label fx:id="titleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    <Label fx:id="descLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+    
+    <HBox spacing="10" alignment="CENTER">
+    	<Button text="Back" onAction="#handleBack" styleClass="button-secondary" />
+    	<Button text="View All Sublets" onAction="#handleGoToSubletList" styleClass="button-apply" />
+	</HBox>
+    </VBox>
+</VBox>

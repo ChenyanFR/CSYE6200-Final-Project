@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" prefHeight="800" prefWidth="650" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.Step3Controller">
+    
+    <fx:include source="header.fxml" />
+    
+    <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">       
+    <Label text="Do you already have a place?" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <HBox alignment="CENTER" spacing="20">
+        <Button alignment="CENTER" onAction="#handleYes" text="Find Roommates" />
+        <Button alignment="CENTER" onAction="#handleNo" text="Find Place" />
+        <Button alignment="CENTER" onAction="#handleBack" text="Back" styleClass="button-secondary" />
+    </HBox>
+    </VBox>
+</VBox>

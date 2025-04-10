@@ -1,0 +1,58 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.SubletDetailController"
+      spacing="20" alignment="CENTER" stylesheets="@login.css"
+      prefWidth="600" prefHeight="800">
+
+    <fx:include source="header.fxml" />
+
+    <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
+        <Label fx:id="titleLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+        <ImageView fx:id="imageView" fitWidth="300" fitHeight="200" preserveRatio="true" />
+        <Label fx:id="descriptionLabel" wrapText="true" maxWidth="400" />
+        <Label fx:id="locationLabel" />
+        <Label fx:id="priceLabel" />
+        <Label fx:id="modeLabel" />
+
+        <Button text="Back" onAction="#handleBack" styleClass="button-secondary" />
+    </VBox>
+</VBox>
+ -->
+ 
+
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.SubletDetailController"
+      spacing="20" alignment="CENTER" stylesheets="@login.css"
+      prefWidth="650" prefHeight="800">
+
+    <Label text="ThriftHive" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <VBox spacing="15" alignment="CENTER">
+        <Label fx:id="titleLabel" style="-fx-font-size: 30px; -fx-font-weight: bold;"/>
+        <ImageView fx:id="imageView" fitWidth="300" fitHeight="200" preserveRatio="true"/>
+        <Label fx:id="descriptionLabel" wrapText="true" maxWidth="400"/>
+        <Label fx:id="locationLabel" style="-fx-font-weight: bold;"/>
+        <Label fx:id="priceLabel" style="-fx-font-weight: bold;"/>
+        <Label fx:id="modeLabel" style="-fx-font-weight: bold;"/>
+        
+        <HBox spacing="10" alignment="CENTER">
+            <!-- Only use the handleBack method which we know exists -->
+            <Button text="Back" onAction="#handleBack" styleClass="button-secondary"/>
+        </HBox>
+    </VBox>
+</VBox>
