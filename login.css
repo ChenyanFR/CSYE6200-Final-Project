@@ -611,6 +611,50 @@
     -fx-font-size: 14px;
 }
 
+/* Add these styles to your CSS file to fix chart label overlapping issues */
+
+.chart {
+    -fx-padding: 15px 15px 15px 15px;  /* Added more left padding for y-axis labels */
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: #dce4f0;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 4, 0, 0, 2);
+}
+
+.axis {
+    -fx-tick-label-font-size: 11px;
+}
+
+.axis-label {
+    -fx-font-size: 12px;
+}
+
+.chart-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Increase space between y-axis and chart content */
+.chart-content {
+    -fx-padding: 0 0 0 10px;
+}
+
+/* Ensure that tick marks don't overlap */
+.axis .axis-tick-mark {
+    -fx-stroke-width: 1.0px;
+}
+
+.axis .axis-minor-tick-mark {
+    -fx-stroke-width: 0.5px;
+}
+
+/* Adding a little more space between tick labels */
+.axis .tick-label {
+    -fx-padding: 5px;
+}
+
 /* ========== SPECIFIC PAGE STYLES ========== */
 /* Login Page */
 .login-container {
