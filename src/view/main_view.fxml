@@ -4,5 +4,6 @@
 
 <StackPane xmlns:fx="http://javafx.com/fxml"
            fx:controller="controller.MainController"
+           stylesheets="@login.css"
            fx:id="rootPane">
 </StackPane>
