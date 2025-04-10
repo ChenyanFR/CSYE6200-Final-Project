@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 
-<VBox alignment="CENTER" prefHeight="800" prefWidth="600" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.LoginController">
+<VBox alignment="CENTER" prefHeight="800" prefWidth="650" spacing="10" stylesheets="@login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="controller.LoginController">
 
     <ImageView fitHeight="200.0" fitWidth="200.0" preserveRatio="true">
         <image>
@@ -21,7 +21,11 @@
         </VBox.margin>
     </ImageView>
 
-    <Label alignment="CENTER" prefHeight="106.0" prefWidth="221.0" text="Welcome to ThriftHive" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" style="-fx-font-size: 16px;"/>
+    <!-- <Label alignment="CENTER" prefHeight="106.0" prefWidth="221.0" text="Welcome to ThriftHive" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" style="-fx-font-size: 16px;"/> -->
+    <VBox alignment="CENTER" spacing="5">
+    <Label text="Welcome to ThriftHive" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #1a2c5b;"/>
+    <Label text="The College Student Sublet and Roommate Finder" style="-fx-font-size: 16px; -fx-text-fill: #5e6c84;"/>
+</VBox>
     <TextField fx:id="usernameField" prefHeight="35.0" prefWidth="100.0" promptText="Username">
         <VBox.margin>
             <Insets left="50.0" right="50.0" top="30.0" />
@@ -35,8 +39,8 @@
     </PasswordField>
 
     <HBox alignment="CENTER" spacing="10">
-        <Button onAction="#handleLogin" text="Login" />
-        <Button onAction="#handleSignupRedirect" text="Sign Up" />
+        <Button onAction="#handleLogin" text="Login" styleClass="button-apply" />
+        <Button onAction="#handleSignupRedirect" text="Sign Up" styleClass="button-secondary" />
     </HBox>
 
 </VBox>

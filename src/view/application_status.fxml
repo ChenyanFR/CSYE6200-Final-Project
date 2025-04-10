@@ -5,7 +5,9 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controller.ApplicationStatusController"
-      alignment="TOP_CENTER" spacing="15" prefWidth="600" prefHeight="800">
+      stylesheets="@login.css"
+      styleClass="sublet-item"
+      alignment="TOP_CENTER" spacing="15" prefWidth="650" prefHeight="800">
 
     <fx:include source="header.fxml" />
 
@@ -19,6 +21,7 @@
         </columns>
     </TableView>
 
-    <Button text="Back" onAction="#handleBack" />
+    <Button text="Back" onAction="#handleBack" styleClass="button-secondary" />
 </VBox>
+
 
