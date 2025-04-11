@@ -13,7 +13,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.SubletStorage;
 
-
+/**
+ * Controller class for the second step of the application flow.
+ * Manages location selection and budget range input for filtering sublet listings.
+ * Provides validation for user inputs and navigation to previous and next steps.
+ */
 public class Step2Controller {
 
 	@FXML
@@ -31,8 +35,14 @@ public class Step2Controller {
     @FXML
     private Label budgetErrorLabel;
 
+    /**
+     * Initializes the controller.
+     * Populates the location dropdown with distinct locations from available listings.
+     * Sets up input validation for budget fields and hides error labels.
+     */
 	@FXML
     public void initialize() {
+		// Populate location dropdown with distinct locations from sublet listings
         locationComboBox.getItems().addAll(
             SubletStorage.getListings().stream()
                 .map(listing -> listing.getLocation())
@@ -52,6 +62,7 @@ public class Step2Controller {
             }
         });
         
+        // Add a listener to the maximum budget input field to ensure only numbers are entered
         maxBudgetField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty() && !newValue.matches("\\d*")) {
                 maxBudgetField.setText(newValue.replaceAll("[^\\d]", ""));
@@ -60,10 +71,17 @@ public class Step2Controller {
     }
     
     
-
+	/**
+     * Handles the Next button click event.
+     * Validates user inputs (location and budget range) before proceeding to the next step.
+     * Displays appropriate error messages if validation fails.
+     * 
+     * @param event The action event triggered by clicking the Next button
+     */
     public void handleNext(ActionEvent event) {
     	boolean hasError = false;
     	
+    	// Validate location selection
         String selectedLocation = locationComboBox.getValue();
         if (selectedLocation == null || selectedLocation.isEmpty()) {
         	locationErrorLabel.setVisible(true);
@@ -83,9 +101,11 @@ public class Step2Controller {
             hasError = true;
         }else {
             try {
+            	// Parse and validate budget range
                 int min = Integer.parseInt(minBudget);
                 int max = Integer.parseInt(maxBudget);
                 
+                // Ensure minimum budget is not greater than maximum
                 if (min > max) {
                     budgetErrorLabel.setText("Minimum budget cannot be greater than maximum");
                     budgetErrorLabel.setVisible(true);
@@ -112,12 +132,16 @@ public class Step2Controller {
         }
     }
 
+    /**
+     * Handles the Back button click event.
+     * Navigates back to the previous step (step1.fxml).
+     * 
+     * @param event The action event triggered by clicking the Back button
+     */
     public void handleBack(ActionEvent event) {
     	try {
     		Parent prevView = FXMLLoader.load(getClass().getResource("/view/step1.fxml"));
             Scene currentScene = ((Node) event.getSource()).getScene();
-//            StackPane rootPane = (StackPane) currentScene.lookup("#rootPane");
-//            rootPane.getChildren().setAll(prevView);
             currentScene.setRoot(prevView);
     	} catch (IOException e) {
     		e.printStackTrace();

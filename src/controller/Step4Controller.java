@@ -16,6 +16,14 @@ import javafx.stage.Stage;
 import model.SubletListing;
 import model.SubletStorage;
 
+/**
+ * Controller class for the fourth step of the application flow.
+ * Manages the form for creating a new sublet listing, including:
+ * - Title, description, and image upload
+ * - Number of roommates and duration fields
+ * - Validation of all input fields
+ * - Navigation to preview screen or back to previous step
+ */
 public class Step4Controller {
 
     @FXML private TextField titleField;
@@ -32,6 +40,10 @@ public class Step4Controller {
     
     private String imagePath;
 
+    /**
+     * Initializes the controller.
+     * Hides all error labels and sets up input validation for numeric fields.
+     */
     @FXML
     public void initialize() {
         // Hide all error labels
@@ -49,6 +61,12 @@ public class Step4Controller {
         });
     }
     
+    /**
+     * Handles the image upload button click event.
+     * Opens a file chooser dialog and stores the selected image path.
+     * 
+     * @param event The action event triggered by clicking the upload button
+     */
     public void handleUpload(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Select an image");
@@ -60,6 +78,13 @@ public class Step4Controller {
         }
     }
 
+    /**
+     * Handles the Complete button click event.
+     * Validates all input fields and creates a new sublet listing if validation passes.
+     * Navigates to the preview screen with the listing details if successful.
+     * 
+     * @param event The action event triggered by clicking the Complete button
+     */
     public void handleComplete(ActionEvent event) {
     	boolean hasError = false;
     	
@@ -87,7 +112,7 @@ public class Step4Controller {
             descErrorLabel.setVisible(false);
         }
         
-     // Verify roommates number
+        // Verify roommates number
         if (roommatesField.getText().trim().isEmpty()) {
             roommatesErrorLabel.setVisible(true);
             hasError = true;
@@ -116,22 +141,28 @@ public class Step4Controller {
             durationErrorLabel.setVisible(false);
         }
         
+        // If all validations pass, create the listing and navigate to preview
         if(!hasError) {
-    	String title = titleField.getText();
-        String description = descArea.getText();
-        String image = imagePath != null ? imagePath : "";
+        	// Get form values
+        	String title = titleField.getText();
+        	String description = descArea.getText();
+        	String image = imagePath != null ? imagePath : "";
 
-        String location = "User Submitted";
-        double price = 0.0;
-        String subletMode = "short";
+        	// Set default values for other required fields
+        	String location = "User Submitted";
+        	double price = 0.0;
+        	String subletMode = "short";
 
-        SubletListing newListing = new SubletListing(title, location, price, description, subletMode, image);
-        SubletStorage.addListing(newListing);
+        	// Create and store the new listing
+        	SubletListing newListing = new SubletListing(title, location, price, description, subletMode, image);
+        	SubletStorage.addListing(newListing);
         
         try {
+        	// Load the preview view and pass the listing data to its controller
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/step5_preview.fxml"));
             Parent previewView = loader.load();
 
+            // Get controller and set data
             Step5PreviewController controller = loader.getController();
             controller.setData(
                 titleField.getText(),
@@ -139,6 +170,7 @@ public class Step4Controller {
                 imagePath
             );
 
+            // Navigate to preview screen
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.getScene().setRoot(previewView);
 
@@ -148,6 +180,12 @@ public class Step4Controller {
     }
     }
 
+    /**
+     * Handles the Back button click event.
+     * Navigates back to the previous step (step3.fxml).
+     * 
+     * @param event The action event triggered by clicking the Back button
+     */
     public void handleBack(ActionEvent event) {
     	try {
     		Parent prevView = FXMLLoader.load(getClass().getResource("/view/step3.fxml"));
