@@ -19,15 +19,15 @@ public class AppliedApplication {
     public String getName() { return name; }
     public String getEmail() { return email; }
     public SubletListing getListing() { return listing; }
-
+    //add applications on the list (manual for now)
     public static void addApplication(AppliedApplication app) {
         applications.add(app);
     }
-
+    // return all applications from appliedapplication
     public static List<AppliedApplication> getAll() {
         return applications;
     }
-
+    //"current" = selected status 
     private static AppliedApplication current;
 
     public static AppliedApplication getCurrent() {

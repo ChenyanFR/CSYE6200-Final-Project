@@ -16,7 +16,7 @@ public class SubletClickTracker {
     static {
         SubletListing cambridgeRoom = new SubletListing("Sunny Room in Cambridge", "Cambridge", 1200.0, "Close to Harvard", "short");
         SubletListing allstonFlat = new SubletListing("Modern Flat in Allston", "Allston", 1500.0, "Furnished + All Utilities", "long");
-
+        //manually input clicks to testout subletclicktracker if it works 
         SubletClickTracker.registerClick(cambridgeRoom);
         SubletClickTracker.registerClick(cambridgeRoom);
         SubletClickTracker.registerClick(cambridgeRoom);

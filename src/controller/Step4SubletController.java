@@ -32,32 +32,37 @@ public class Step4SubletController {
     @FXML private TextField priceFilter;
     @FXML private TableColumn<SubletListing, Void> detailsColumn;
 
-
+    // set up filteredlist from subletlisting
     private FilteredList<SubletListing> filteredList;
 
     @FXML
     public void initialize() {
+    	//map subletlisting in tableform(title/location/price/des -> show in tableview)
         titleColumn.setCellValueFactory(new PropertyValueFactory<>("title"));
         locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-
+        // connect table to the filtered list
         filteredList = new FilteredList<>(SubletStorage.getListings(), p -> true);
         tableView.setItems(filteredList);
 
         locationFilter.getItems().add("All");
+        //collections data pipeline - filtering with stream
         SubletStorage.getListings().stream()
             .map(SubletListing::getLocation)
             .distinct()
             .forEach(locationFilter.getItems()::add);
         locationFilter.setValue("All");
+        
+        //eventlistener for filter events
         locationFilter.setOnAction(e -> applyFilters());
         priceFilter.textProperty().addListener((obs, oldVal, newVal) -> applyFilters());
-        
+        //details button on table view
         addDetailsButtonToTable(); 
     }
     @FXML
     private void handleApply(ActionEvent event) {
+    	//select selected sublet in subletlisting
         SubletListing selected = tableView.getSelectionModel().getSelectedItem();
         if (selected == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please select a listing first!");
@@ -66,12 +71,13 @@ public class Step4SubletController {
         }
 
         try {
+        	//applyview load and data loaded to controller
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ApplyView.fxml"));
             Parent applyPage = loader.load();
 
             ApplyController controller = loader.getController();
             controller.setData(selected);
-
+            // set applyview on stage
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(applyPage));
         } catch (IOException e) {
@@ -109,6 +115,7 @@ public class Step4SubletController {
             return locationMatch && priceMatch;
         });
     }
+    // details button on each column 
     private void addDetailsButtonToTable() {
         detailsColumn.setCellFactory(col -> new TableCell<>() {
             private final Button button = new Button("Details");
@@ -131,6 +138,7 @@ public class Step4SubletController {
             }
         });
     }
+    // detail pages and render data
     private void openDetailPage(SubletListing listing) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sublet_detail.fxml"));
