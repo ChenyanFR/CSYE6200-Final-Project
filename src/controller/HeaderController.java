@@ -10,35 +10,36 @@ import java.io.IOException;
 
 public class HeaderController {
 
-    
+	/**
+     * Button that navigates to the home screen when clicked.
+     * This is injected by JavaFX FXMLLoader.
+     */
     @FXML
     private Button homeButton;
+
     /**
-    @FXML
-    private Button backButton;
-    
-    @FXML
-    private void handleBack() {
-        
-        try {
-            Parent previousView = FXMLLoader.load(getClass().getResource("/view/step1.fxml"));
-            Scene currentScene = backButton.getScene();
-            Stage stage = (Stage) currentScene.getWindow();
-            stage.setScene(new Scene(previousView, 600, 1000));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }**/
-    
+     * Event handler for the home button.
+     * Loads the home view (step1.fxml) and displays it with dimensions 600x800.
+     * 
+     * This method is called when the home button is clicked.
+     */
     @FXML
     private void handleHome() {
         
         try {
+        	// Load the home view from FXML file
             Parent homeView = FXMLLoader.load(getClass().getResource("/view/step1.fxml"));
+            
+            // Get the current scene from the home button
             Scene currentScene = homeButton.getScene();
+            
+            // Get the stage (window) from the current scene
             Stage stage = (Stage) currentScene.getWindow();
+            
+            // Set the new scene with the home view
             stage.setScene(new Scene(homeView, 600, 800));
         } catch (IOException e) {
+        	// Print stack trace if loading the FXML file fails
             e.printStackTrace();
         }
     }
