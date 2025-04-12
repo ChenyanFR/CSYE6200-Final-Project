@@ -1,7 +1,7 @@
 
-# Instructions 
+** Instructions **
 
-## Requirements
+*Requirements*
 Java JDK 11 or later
 JavaFX SDK (downloaded and unZipped)
 Eclipse IDE for Java Developers
